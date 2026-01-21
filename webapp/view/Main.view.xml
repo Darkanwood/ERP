@@ -1,0 +1,48 @@
+<mvc:View controllerName="zfhwedel.zfhwedelui5.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content >
+            <Button id="helloWorldButton" text="{i18n>showHelloButtonText}" press=".onShowHello"></Button>
+            <Input 
+            
+                id="helloWorldInput"
+                value="{/recipient/name}"
+                description="Hello {/recipient/name}"
+                valueLiveUpdate="true"
+                width="60%"
+            />
+            <Panel 
+                id="SalesDocPanel"
+                headerText="{i18n>salesDocTitle}"
+                class="sapUiResponsiveMargin"
+                width="auto"
+            >
+                <List
+                    id="salesDocsList"
+                    headerText="{i18n>salesDocsListTitle}"
+                    items="{salesDocs>/SalesDoc}"
+                    growing="true"
+                >
+                    <items>
+                        <ObjectListItem
+                            id="listItem"
+                            title="{salesDocs>SalesDoc}. {salesDocs>SalesDocType}"
+                            number="{
+                                parts: [
+                                    'salesDocs>SalesDocNetValue',
+                                    'salesDocs>SalesDocNetValueCurrency'
+                                ],
+                                type: 'sap.ui.model.type.Currency',
+                                formatOptions: { 
+                                    showMeasure: false
+                                }
+                            }"
+                            numberUnit="{salesDocs>SalesDocNetValueCurrency}"
+                        />
+                    </items>
+                </List>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View> 
