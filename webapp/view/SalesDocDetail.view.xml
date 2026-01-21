@@ -1,0 +1,33 @@
+<mvc:View
+ controllerName="zfhwedel.zfhwedelui5.controller.SalesDocDetail"
+ xmlns="sap.m"
+ xmlns:mvc="sap.ui.core.mvc"
+
+    >
+    <Page 
+        id="salesDocDetailPage"
+        title="{i18n>detailPageTitle}"
+        showNavButton="true"
+        navButtonPress=".onNavBack"
+    >
+
+        <ObjectHeader 
+            intro="{salesDocs>SalesDoc}"
+            id="SalesDocDetailPageHeader" 
+            title="{salesDocs>SalesDocType}"
+            number="{
+                parts: [
+                    'salesDocs>SalesDocNetValue',
+                    'salesDocs>SalesDocNetValueCurrency'
+                ],
+                type: 'sap.ui.model.type.Currency',
+                formatOptions: {
+                    showMeasure: false
+                    }
+                }"
+                numberUnit="{salesDocs>SalesDocNetValueCurrency}"
+                responsive="true"
+                class="sapUiResponsivePadding--header"
+        />
+     </Page>
+</mvc:View>

@@ -4,6 +4,9 @@
     <Page id="page" title="{i18n>title}">
         <content >
             <Button id="helloWorldButton" text="{i18n>showHelloButtonText}" press=".onShowHello"></Button>
+             <Button id="helloWorldButton2" text="{i18n>showHelloButtonText}" press=".onOpenDialog"
+                class="sapUiSmallMarginEnd">
+            </Button>
             <Input 
             
                 id="helloWorldInput"
@@ -38,7 +41,12 @@
                                     showMeasure: false
                                 }
                             }"
+
                             numberUnit="{salesDocs>SalesDocNetValueCurrency}"
+
+                            type="Navigation"
+
+                            press=".showDetails"
                         />
                     </items>
                 </List>

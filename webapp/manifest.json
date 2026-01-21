@@ -111,12 +111,23 @@
           "target": [
             "TargetMain"
           ]
+        },
+        {
+          "name": "SalesDocDetail",
+          "pattern": "detail/{salesDocPath}",
+          "target": "SalesDocDetail"
         }
       ],
       "targets": {
         "TargetMain": {
           "id": "Main",
           "name": "Main"
+        },
+        "SalesDocDetail": {
+          "viewType": "XML",
+          "transition": "slide",
+          "viewId": "SalesDocDetail",
+          "viewName": "SalesDocDetail"
         }
       }
     },

@@ -31,6 +31,38 @@ sap.ui.define([
 
             // show message
             MessageToast.show(sMsg);
-        }
+        },
+
+        onOpenDialog() {
+            //create dialog lazily
+
+            this.pDialog ??= this.loadFragment({
+                name: "zfhwedel.zfhwedelui5.view.fragments.HelloDialog"
+            });
+
+            this.pDialog.then((oDialog) => oDialog.open());
+        },
+
+        onCloseDialog() {
+            //note: We don't need to chein to the pdIalog promise, since this event hanlder
+            // is only called form within the loaded dialog itself
+            this.byId("helloDialog").close();
+        },
+        
+            showDetails: function(oEvent) {
+
+                // Get selected element
+                const oItem = oEvent.getSource()
+
+                // Get Router from Component.js
+                const oRouter = this.getOwnerComponent().getRouter();
+
+                // Nav to detail page (Use name of route)
+                oRouter.navTo("SalesDocDetail", {
+
+                salesDocPath: window.encodeURIComponent(oItem.getBindingContext("salesDocs").getPath().substr(1))
+
+                });
+            }
     });
 });
